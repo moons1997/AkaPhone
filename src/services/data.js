@@ -192,7 +192,7 @@ export const storeProduct = [
     inCart: false,
     count: 0,
     total: 0,
-    category: 4,
+    category: 1,
     buy_count: 30,
     sale: 5,
   },

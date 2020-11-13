@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import _ from "lodash";
-import { contextApi } from "../services/Context";
+import { contextApi } from "../../services/Context";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 const NavWrapper = styled.nav`
   text-align: center;
   li {
@@ -43,4 +45,8 @@ export const Pagination = ({ totalProduct }) => {
       ))}
     </NavWrapper>
   );
+};
+
+Pagination.propTypes = {
+  totalProduct: PropTypes.number.isRequired,
 };

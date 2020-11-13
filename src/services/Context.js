@@ -1,10 +1,14 @@
 import React, { createContext, useState, useEffect } from "react";
+import { categoryData } from "./categoryData";
 import { storeProduct, detailProduct } from "./data";
 export const contextApi = createContext();
 contextApi.displayName = "ProductContext";
 
 const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState("");
+
   const [detail, setDetail] = useState(detailProduct);
   const [cart, setCart] = useState([]);
 
@@ -12,19 +16,31 @@ const Context = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [sale, setSale] = useState(0);
 
-  const [pageSize, setPageSize] = useState(8);
+  const [pageSize] = useState(8);
   const [currentPage, setCurrentPage] = useState(1);
 
   const setProduct = () => {
     let products = [];
+    let categorys = [];
+
     storeProduct.forEach((item) => {
       const singleItem = { ...item };
       products = [...products, singleItem];
     });
+
+    categoryData.forEach((item) => {
+      const singleItem = { ...item };
+      categorys = [...categorys, singleItem];
+    });
+
     setProducts(products);
+    setCategory(categorys);
   };
 
   useEffect(setProduct, []);
+
+  // console.log(category);
+
   // -----------
   useEffect(() => {
     addTotals();
@@ -127,6 +143,11 @@ const Context = ({ children }) => {
     setCartTotal(total);
   };
 
+  const handleSelectCategory = (id) => {
+    setCurrentCategory(id);
+    setCurrentPage(1);
+  };
+
   const handleChangePage = (item) => {
     setCurrentPage(item);
   };
@@ -149,6 +170,9 @@ const Context = ({ children }) => {
         handleChangePage,
         pageSize,
         currentPage,
+        handleSelectCategory,
+        category,
+        currentCategory,
       }}
     >
       {children}
