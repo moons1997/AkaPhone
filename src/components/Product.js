@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdAddShoppingCart } from "react-icons/md";
+
 import PropTypes from "prop-types";
 import { contextApi } from "../services/Context";
 
-import Toast from "../components/Toast";
+import AddToCartBtn from "./AddToCartBtn";
 const sale_bg = "./images/sale_bg.png";
 const ProductWrapper = styled.div`
   margin-bottom: 30px;
@@ -62,6 +61,7 @@ const ProductWrapper = styled.div`
     color: #fff;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    width: 100%;
   }
   .product-btn:focus {
     outline: none;
@@ -107,12 +107,12 @@ const ProductWrapper = styled.div`
   }
 `;
 
-const Product = ({ product }) => {
-  const { addToCart, handleDetail } = useContext(contextApi);
-
+const Product = ({ product, col_m }) => {
+  const { handleDetail } = useContext(contextApi);
+  // console.log(col);
   return (
     <>
-      <ProductWrapper className="col-9 col-md-6 col-lg-3">
+      <ProductWrapper className={col_m}>
         <div className="card ">
           {product.sale ? (
             <>
@@ -149,22 +149,7 @@ const Product = ({ product }) => {
               <div></div>
             </div>
           </div>
-          <button
-            className="product-btn"
-            disabled={product.inCart ? true : false}
-            onClick={() => {
-              addToCart(product.id);
-              Toast(product);
-            }}
-          >
-            {product.inCart ? (
-              <div>In Cart {<FaShoppingCart size={20} className="ml-2" />}</div>
-            ) : (
-              <div>
-                Add To Cart {<MdAddShoppingCart className="ml-2" size={20} />}
-              </div>
-            )}
-          </button>
+          <AddToCartBtn classN="product-btn" product={product} />
         </div>
       </ProductWrapper>
     </>

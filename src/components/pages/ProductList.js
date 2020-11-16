@@ -42,7 +42,11 @@ const ProductList = () => {
 
         <div className="row">
           {paginateProduct.map((product) => (
-            <Product key={product.id} product={product} />
+            <Product
+              key={product.id}
+              product={product}
+              col_m="col-9 col-md-6 col-lg-3"
+            />
           ))}
         </div>
         <Pagination

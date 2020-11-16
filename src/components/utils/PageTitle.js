@@ -7,7 +7,6 @@ const Title = styled.h4`
   font-weight: 800;
   line-height: 32px;
   color: #333;
-  margin-bottom: 50px;
 `;
 const PageTitle = ({ title }) => {
   return <Title>{title}</Title>;
