@@ -13,9 +13,17 @@ const ButtonWrapper = styled.button`
   text-align: center;
   color: #fff;
   width: 188px;
+  transition: all 0.3s ease-in-out;
 
   &:focus {
     outline: none;
+  }
+  &:hover {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 25px #ffffff;
+    color: #000;
   }
 `;
 

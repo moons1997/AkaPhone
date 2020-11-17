@@ -7,7 +7,7 @@ import { RiRestartLine } from "react-icons/ri";
 import { contextApi } from "../../services/Context";
 
 const CartWrapper = styled.div`
-  margin-top: 70px;
+  margin: 70px 0 50px;
   .cart_img {
     width: 10%;
   }

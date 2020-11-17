@@ -12,7 +12,6 @@ const ProductWrapper = styled.div`
   .card {
     position: relative;
     z-index: 5;
-    height: 390px;
   }
   .product_title {
     font-family: Montserrat;
@@ -104,6 +103,29 @@ const ProductWrapper = styled.div`
     color: #fff;
     font-size: 20px;
     font-weight: 700;
+  }
+  @media screen and (max-width: 768px) {
+    .img-container {
+      height: 175px;
+    }
+    .img-container img {
+      height: 90%;
+    }
+    .sale_info {
+      height: 50px;
+      width: 50px;
+    }
+    .sale_info span {
+      font-size: 13px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .card {
+      text-align: center;
+    }
+    .sale_info {
+      right: 0;
+    }
   }
 `;
 

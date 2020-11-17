@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 import { categoryData } from "./categoryData";
-import { storeProduct, detailProduct } from "./data";
+import { storeProduct, detailProduct, dataMenu } from "./data";
 export const contextApi = createContext();
 contextApi.displayName = "ProductContext";
 
 const Context = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [menus] = useState(dataMenu);
   const [currentCategory, setCurrentCategory] = useState("");
 
   const [detail, setDetail] = useState(detailProduct);
@@ -16,8 +17,9 @@ const Context = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [sale, setSale] = useState(0);
 
-  const [pageSize] = useState(8);
+  const [pageSize, setPageSize] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [count, setCount] = useState(0);
 
   const setProduct = () => {
     let products = [];
@@ -47,6 +49,24 @@ const Context = ({ children }) => {
   }, [cart]);
   // ----------- bu kodning ma'nosi cart ishlagandan keyin addTotals() function ishlaydi
 
+  const handleWidth = () => {
+    const innerWidth = window.innerWidth;
+
+    if (innerWidth > 784) {
+      setCount(4);
+      setPageSize(8);
+    } else if (innerWidth > 526) {
+      setCount(3);
+      setPageSize(6);
+    } else {
+      setCount(1);
+      setPageSize(3);
+    }
+  };
+
+  useEffect(() => {
+    handleWidth();
+  });
   const getItem = (id) => {
     return products.find((item) => item.id === id);
   };
@@ -151,7 +171,6 @@ const Context = ({ children }) => {
   const handleChangePage = (item) => {
     setCurrentPage(item);
   };
-
   return (
     <contextApi.Provider
       value={{
@@ -173,6 +192,8 @@ const Context = ({ children }) => {
         handleSelectCategory,
         category,
         currentCategory,
+        menus,
+        count,
       }}
     >
       {children}

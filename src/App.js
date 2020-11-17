@@ -10,6 +10,7 @@ import Cart from "./components/cart";
 import MineComponenta from "./components/pages/MineComponenta";
 import "antd/dist/antd.css";
 import "./App.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/details" component={Details} />
         <Route component={Default} />
       </Switch>
+      <Footer />
 
       <ToastContainer
         position="top-right"

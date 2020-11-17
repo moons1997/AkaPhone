@@ -12,6 +12,7 @@ import PageTitle from "../utils/PageTitle";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const SaleWrapper = styled.div`
+  padding: 45px 0;
   background: #efefef;
   .swiper-button-next,
   .swiper-container-rtl .swiper-button-prev {
@@ -21,17 +22,22 @@ const SaleWrapper = styled.div`
   .swiper-container-rtl .swiper-button-next {
     left: -2px;
   }
+  @media screen and (max-width: 768px) {
+    padding: 30px 0;
+  }
+  @media screen and (max-width: 480px) {
+  }
 `;
 
 const SaleProduct = () => {
-  const { products } = useContext(contextApi);
+  const { products, count } = useContext(contextApi);
 
   return (
-    <SaleWrapper>
+    <SaleWrapper id="sale">
       <div className="container">
         <PageTitle title="Горячие за неделью" />
         <Swiper
-          slidesPerView={4}
+          slidesPerView={count}
           navigation
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: true }}
@@ -42,7 +48,7 @@ const SaleProduct = () => {
           {products.map((product) =>
             product.sale > 0 ? (
               <SwiperSlide key={product.id}>
-                <Product product={product} col_m="col-12 col-md-6 col-lg-12" />
+                <Product product={product} col_m="col-lg-12 col-md-12 col-12" />
               </SwiperSlide>
             ) : (
               ""

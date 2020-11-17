@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Toast from "../components/Toast";
 
 const DetailWrapper = styled.div`
-  margin-top: 70px;
+  margin: 70px 0 50px;
 
   .company_name {
     font-size: 15px;
@@ -109,7 +109,7 @@ const Details = () => {
               </div>
               <div className="price mb-3">
                 <div className="sale_price">{price} ₽</div>
-                <div className="old_price">9 ₽</div>
+                <div className="old_price"></div>
               </div>
               <div className="d-flex ">
                 <Link to="/" className="detail-btn detail-btn_1">

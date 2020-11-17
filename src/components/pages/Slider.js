@@ -8,7 +8,7 @@ const bg = "./images/slider_bg.jpg";
 
 const SliderWrapper = styled.div`
   position: relative;
-  margin: 45px 0;
+  margin: 75px 0;
 
   &::after {
     content: "";
@@ -108,6 +108,70 @@ const SliderWrapper = styled.div`
     height: 10px;
     background: #c4c4c4;
   }
+
+  @media screen and (max-width: 768px) {
+    margin: 45px 0 0 0;
+    &::after {
+      width: 100%;
+      height: 50%;
+      top: 0;
+    }
+    &::before {
+      width: 100%;
+      height: 50%;
+      top: 50%;
+    }
+    .right .img img {
+      width: 80%;
+    }
+    .ant-carousel .slick-dots {
+      bottom: 0;
+      left: auto;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .title {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 27px;
+      text-align: justify;
+
+      /* цвет текста */
+
+      color: #333333;
+    }
+    .button button {
+      width: 100%;
+      text-align: center;
+    }
+    .right .img {
+      height: auto;
+    }
+    .right .img img {
+      transform: translateX(0px);
+    }
+    .right .name {
+      margin: 0 auto;
+      margin-bottom: 50px;
+    }
+    .ant-carousel .slick-dots {
+      right: auto;
+      left: auto;
+    }
+    .ant-carousel .slick-dots li {
+      margin-right: 25px;
+    }
+    .ant-carousel .slick-dots li.slick-active {
+      width: 24px;
+    }
+    .right .name {
+      font-size: 22px;
+    }
+  }
 `;
 
 const Slider = () => {
@@ -115,7 +179,7 @@ const Slider = () => {
     <SliderWrapper autoplay={true} effect="fade">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-12 col-12">
             <div className="left">
               <div className="title">
                 Смартфоны и гаджеты для близких и друзей по доступной цене
@@ -129,7 +193,7 @@ const Slider = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-12 col-12">
             <Carousel>
               <div className="right">
                 <div className="img">

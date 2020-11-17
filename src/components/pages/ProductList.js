@@ -9,6 +9,9 @@ import Category from "../commons/Category";
 
 const ProductListWrapper = styled.div`
   padding: 50px 0;
+  @media screen and (max-width: 768px) {
+    padding: 20px 0 50px;
+  }
 `;
 const ProductList = () => {
   const {
@@ -18,6 +21,7 @@ const ProductList = () => {
     handleSelectCategory,
     category,
     currentCategory,
+    count,
   } = useContext(contextApi);
 
   // filtered code
@@ -30,7 +34,7 @@ const ProductList = () => {
 
   // pagination code
   return (
-    <ProductListWrapper>
+    <ProductListWrapper id="category">
       <div className="container">
         <Title title="Каталог товаров" />
 
@@ -38,6 +42,7 @@ const ProductList = () => {
           onSelectCategory={handleSelectCategory}
           category={category}
           currentCategory={currentCategory}
+          count={count}
         />
 
         <div className="row">
@@ -45,7 +50,7 @@ const ProductList = () => {
             <Product
               key={product.id}
               product={product}
-              col_m="col-9 col-md-6 col-lg-3"
+              col_m="col-lg-3 col-md-4 col-12"
             />
           ))}
         </div>

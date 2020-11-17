@@ -41,23 +41,23 @@ const CategoryWrapper = styled.div`
   }
 `;
 
-const Category = ({ onSelectCategory, category, currentCategory }) => {
+const Category = ({ onSelectCategory, category, currentCategory, count }) => {
   return (
     <CategoryWrapper>
       {/* <div className="row"> */}
       <Swiper
         spaceBetween={30}
-        slidesPerView={4}
+        slidesPerView={count}
         navigation
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         onSlideChange={() => {}}
         onSwiper={(swiper) => {}}
-        className="pt-5 pb-5"
+        className="pt-4 pb-4"
       >
         {category.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="" key={item.id}>
+            <div className="">
               <div
                 className={
                   item.id === currentCategory

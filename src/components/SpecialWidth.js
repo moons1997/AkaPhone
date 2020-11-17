@@ -54,11 +54,27 @@ const ItemWrapper = styled.div`
     font-size: 20px;
     font-weight: 700;
   }
+  @media screen and (max-width: 768px) {
+    padding: 10px 41px 10px 10px;
+    .sale_info {
+      height: 50px;
+      width: 50px;
+      right: -5px;
+    }
+    .sale_info span {
+      font-size: 13px;
+    }
+    .info p {
+      margin-bottom: 20%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+  }
 `;
 
 const SpecialWidth = ({ handleDetail, products }) => {
   return (
-    <div className="col-lg-12 ">
+    <div className="col-lg-12 col-md-12 col-12 mb-4">
       {products.map(
         (product) =>
           product.specialWidth && (

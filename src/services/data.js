@@ -237,7 +237,7 @@ export const storeProduct = [
     sale: 5,
     slide: false,
     specialWidth: false,
-    specialHeight: false,
+    specialHeight: true,
     specialMiddleL1: false,
     specialMiddleL2: false,
     specialMiddleR1: false,
@@ -263,7 +263,7 @@ export const storeProduct = [
     specialMiddleL1: false,
     specialMiddleL2: false,
     specialMiddleR1: false,
-    specialMiddleR2: false,
+    specialMiddleR2: true,
   },
   {
     id: 13,
@@ -289,10 +289,10 @@ export const storeProduct = [
   },
   {
     id: 14,
-    title: "HyperX Cloud Stinger",
+    title: "Galaxy Tab S6",
     img: "./images/product-14.png",
     price: 25,
-    company: "HyperX ",
+    company: "Galaxy",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
     inCart: false,
@@ -306,7 +306,7 @@ export const storeProduct = [
     specialHeight: false,
     specialMiddleL1: false,
     specialMiddleL2: false,
-    specialMiddleR1: false,
+    specialMiddleR1: true,
     specialMiddleR2: false,
   },
 ];
@@ -333,3 +333,21 @@ export const detailProduct = {
   specialMiddleR1: false,
   specialMiddleR2: false,
 };
+
+export const dataMenu = [
+  {
+    id: 1,
+    title: "Скидки",
+    url: "#sale",
+  },
+  {
+    id: 2,
+    title: "Специальные предложения",
+    url: "#special",
+  },
+  {
+    id: 3,
+    title: "Каталог товаров",
+    url: "#category",
+  },
+];

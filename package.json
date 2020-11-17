@@ -17,6 +17,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-toastify": "^6.0.9",
+    "react-yandex-maps": "^4.4.0",
     "styled-components": "^5.2.1",
     "swiper": "^6.3.5",
     "toastify": "^2.0.1"
